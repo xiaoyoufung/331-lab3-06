@@ -14,10 +14,11 @@ export interface Passenger {
   _id: string
   name: string
   trips: number
+  airline: Airline
 }
 
 export interface Airline {
-  id: string
+  _id: string
   name: string
   country: string
   logo: string

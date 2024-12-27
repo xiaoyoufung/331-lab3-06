@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { toRefs, defineProps, onMounted } from 'vue'
 import { type Passenger } from '@/types'
 import PaxService from '@/services/PaxService'
 import { useRouter } from 'vue-router'
 
-const passenger = ref<Passenger | null>(null)
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-})
+const props = defineProps<{
+  passenger: Passenger
+  id: string
+}>()
+
+const { passenger } = toRefs(props)
 
 const router = useRouter()
 
@@ -29,12 +28,5 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div v-if="passenger">
-    <h1>{{ passenger.name }}</h1>
-    <nav>
-      <router-link :to="{ name: 'passenger-detail-view' }">Details</router-link> |
-      <router-link :to="{ name: 'passenger-airline-view' }">Airline</router-link>
-    </nav>
-    <RouterView :passenger="passenger" />
-  </div>
+  <p>trips: {{ passenger.trips }}</p>
 </template>

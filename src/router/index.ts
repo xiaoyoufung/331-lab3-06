@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PaxListView from '@/views/PaxListView.vue'
 import AboutView from '@/views/AboutView.vue'
-import EventDetailView from '@/views/event/DetailView.vue'
+import PaxDetailView from '@/views/event/DetailView.vue'
 import EventRegisterView from '@/views/event/RegisterView.vue'
 import EventEditView from '@/views/event/EditView.vue'
 import EventLayoutView from '@/views/event/LayoutView.vue'
@@ -29,19 +29,13 @@ const router = createRouter({
         {
           path: '',
           name: 'passenger-detail-view',
-          component: EventDetailView,
+          component: PaxDetailView,
           props: true,
         },
         {
-          path: 'register',
-          name: 'passenger-register-view',
+          path: 'airline',
+          name: 'passenger-airline-view',
           component: EventRegisterView,
-          props: true,
-        },
-        {
-          path: 'edit',
-          name: 'passenger-edit-view',
-          component: EventEditView,
           props: true,
         },
       ],

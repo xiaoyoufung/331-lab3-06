@@ -16,4 +16,7 @@ export default {
   getPassenger(id: string) {
     return apiClient.get('/passenger/' + id)
   },
+  getAirline(id: string) {
+    return apiClient.get('/airlines/' + id)
+  },
 }
