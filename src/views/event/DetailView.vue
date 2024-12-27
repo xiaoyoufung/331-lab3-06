@@ -10,5 +10,6 @@ const props = defineProps<{
 const { passenger } = toRefs(props)
 </script>
 <template>
-  <p>trips: {{ passenger.trips }}</p>
+  <p>Trips: {{ passenger.trips }}</p>
+  <p>Airline: {{ passenger.airline[0].name }}</p>
 </template>

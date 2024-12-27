@@ -14,7 +14,7 @@ export interface Passenger {
   _id: string
   name: string
   trips: number
-  airline: Airline
+  airline: Airline[]
 }
 
 export interface Airline {

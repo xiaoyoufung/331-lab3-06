@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PaxListView from '@/views/PaxListView.vue'
 import AboutView from '@/views/AboutView.vue'
 import PaxDetailView from '@/views/event/DetailView.vue'
-import EventRegisterView from '@/views/event/RegisterView.vue'
-import EventEditView from '@/views/event/EditView.vue'
+import AirlineDetailView from '@/views/event/AirlineDetailView.vue'
 import EventLayoutView from '@/views/event/LayoutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
@@ -35,7 +34,7 @@ const router = createRouter({
         {
           path: 'airline',
           name: 'passenger-airline-view',
-          component: EventRegisterView,
+          component: AirlineDetailView,
           props: true,
         },
       ],
