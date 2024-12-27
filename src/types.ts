@@ -11,7 +11,7 @@ export interface Event {
 }
 
 export interface Passenger {
-  id: string
+  _id: string
   name: string
   trips: number
 }

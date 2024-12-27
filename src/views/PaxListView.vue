@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import EventCard from '@/components/EventCard.vue'
+import PaxCard from '@/components/PaxCard.vue'
 
-import { type Event } from '@/types'
+import { type Passenger } from '@/types'
 import { ref, onMounted, computed, watchEffect } from 'vue'
-import EventService from '@/services/EventService'
+import PaxService from '@/services/PaxService'
 import { RouterLink } from 'vue-router'
 
-const events = ref<Event[] | null>(null)
-const totalEvents = ref(0)
+const passengers = ref<Passenger[] | null>(null)
+const totalPassengers = ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / perPage.value)
+  const totalPages = Math.ceil(totalPassengers.value / perPage.value)
   return page.value < totalPages
 })
 const props = defineProps({
@@ -28,10 +28,10 @@ const perPage = computed(() => props.perPage)
 
 onMounted(() => {
   watchEffect(() => {
-    EventService.getEvents(perPage.value, page.value)
+    PaxService.getPassengers(perPage.value, page.value)
       .then((response) => {
-        events.value = response.data
-        totalEvents.value = response.headers['x-total-count']
+        passengers.value = response.data['data']
+        totalPassengers.value = response.headers['x-total-count']
       })
       .catch((error) => {
         console.error('There was an error!', error)
@@ -41,14 +41,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
+  <h1>Lists of Passenger</h1>
   <!-- new element -->
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <PaxCard v-for="passenger in passengers" :key="passenger._id" :passenger="passenger" />
     <div class="pagination">
       <RouterLink
         id="page-prev"
-        :to="{ name: 'event-list-view', query: { page: page - 1, perPage: perPage } }"
+        :to="{ name: 'passenger-list-view', query: { page: page - 1, perPage: perPage } }"
         rel="prev"
         v-if="page != 1"
         >&#60; Prev Page</RouterLink
@@ -56,7 +56,7 @@ onMounted(() => {
 
       <RouterLink
         id="page-next"
-        :to="{ name: 'event-list-view', query: { page: page + 1, perPage: perPage } }"
+        :to="{ name: 'passenger-list-view', query: { page: page + 1, perPage: perPage } }"
         rel="next"
         v-if="hasNextPage"
         >Next Page &#62;</RouterLink

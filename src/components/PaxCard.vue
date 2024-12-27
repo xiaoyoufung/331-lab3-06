@@ -6,7 +6,10 @@ defineProps<{
 </script>
 
 <template>
-  <RouterLink class="event-link" :to="{ name: 'pax-detail-view', params: { id: passenger.id } }">
+  <RouterLink
+    class="event-link"
+    :to="{ name: 'passenger-detail-view', params: { id: passenger._id } }"
+  >
     <div class="pax-card">
       <h2>{{ passenger.name }}</h2>
       <span>Trips: {{ passenger.trips }}</span>
@@ -23,7 +26,7 @@ defineProps<{
   margin-bottom: 18px;
 }
 
-.event-card:hover {
+.pax-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   background-color: #f3f3e0;

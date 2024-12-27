@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 
-const pageSize = ref(2)
+const pageSize = ref(3)
 </script>
 
 <template>
@@ -10,8 +10,8 @@ const pageSize = ref(2)
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink :to="{ name: 'event-list-view', query: { perPage: pageSize } }"
-            >Event</RouterLink
+          <RouterLink :to="{ name: 'passenger-list-view', query: { perPage: pageSize } }"
+            >Passenger</RouterLink
           >
           | <RouterLink :to="{ name: 'about' }">About</RouterLink>
         </nav>
