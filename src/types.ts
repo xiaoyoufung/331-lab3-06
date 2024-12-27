@@ -15,3 +15,14 @@ export interface Passenger {
   name: string
   trips: number
 }
+
+export interface Airline {
+  id: string
+  name: string
+  country: string
+  logo: string
+  slogan: string
+  head_quaters: string
+  website: string
+  established: string
+}
