@@ -9,3 +9,9 @@ export interface Event {
   petsAllowed: boolean
   organizer: string
 }
+
+export interface Passenger {
+  id: string
+  name: string
+  trips: number
+}
