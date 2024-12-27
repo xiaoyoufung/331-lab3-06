@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import type { Event } from '@/types'
+import type { Passenger } from '@/types'
 defineProps<{
-  event: Event
+  passenger: Passenger
 }>()
 </script>
 
 <template>
-  <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: event.id } }">
-    <div class="event-card">
-      <h2>{{ event.title }}</h2>
-      <span>@{{ event.time }} on {{ event.date }}</span>
+  <RouterLink class="event-link" :to="{ name: 'pax-detail-view', params: { id: passenger.id } }">
+    <div class="pax-card">
+      <h2>{{ passenger.name }}</h2>
+      <span>Trips: {{ passenger.trips }}</span>
     </div>
   </RouterLink>
 </template>
 
 <style scoped>
-.event-card {
+.pax-card {
   padding: 20px;
   width: 250px;
   cursor: pointer;
