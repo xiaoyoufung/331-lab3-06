@@ -21,7 +21,7 @@ onMounted(() => {
     })
     .catch((error) => {
       if (error.response && error.response.status === 404) {
-        router.push({ name: '404-resource-view', params: { resource: 'event' } })
+        router.push({ name: '404-resource-view', params: { resource: 'airline' } })
       } else {
         router.push({ name: 'network-error-view' })
       }
