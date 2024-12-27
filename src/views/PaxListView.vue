@@ -31,7 +31,7 @@ onMounted(() => {
     PaxService.getPassengers(perPage.value, page.value)
       .then((response) => {
         passengers.value = response.data['data']
-        totalPassengers.value = response.headers['x-total-count']
+        totalPassengers.value = response.headers['content-length']
       })
       .catch((error) => {
         console.error('There was an error!', error)
@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Lists of Passenger</h1>
+  <h1>List of Passengers</h1>
   <!-- new element -->
   <div class="events">
     <PaxCard v-for="passenger in passengers" :key="passenger._id" :passenger="passenger" />
